@@ -46,14 +46,15 @@ const EditProject: NextPage = () => {
   useEffect(() => {
     const loadContent = async (project: any): Promise<void> => {
       const res = await axios.get(`http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects/${project}`)
+      const data = res.data
 
       return (
-        setName(res.data[0].name),
-        setDescription(res.data[0].description),
-        setTime(res.data[0].time),
-        setUrl(res.data[0].url),
-        setGhUrl(res.data[0].github_url),
-        setImgUrl(res.data[0].video_url)
+        setName(data.data[0].name),
+        setDescription(data.data[0].description),
+        setTime(data.data[0].time),
+        setUrl(data.data[0].url),
+        setGhUrl(data.data[0].github_url),
+        setImgUrl(data.data[0].video_url)
       )
     }
     loadContent(router.query.name)

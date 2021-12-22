@@ -48,7 +48,7 @@ const EditProject: NextPage = () => {
       const res = await axios({
         method: 'GET',
         url: `http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects/${project}`,
-        headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' }
+        headers: {  'Access-Control-Allow-Origin': 'http://us.01.brandstoredesign.com.br:3333/' }
       })
       const data = res.data
 

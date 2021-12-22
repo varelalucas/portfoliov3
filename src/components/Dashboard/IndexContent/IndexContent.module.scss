@@ -1,0 +1,158 @@
+@import '../../../styles/colors.scss';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 640px);
+  gap: 20px;
+
+  .item {
+    width: 100%;
+    height: 100%;
+    
+    .card {
+      background-color: $bgSecondary;
+      width: 100%;
+      padding: 40px;
+      border-radius: 20px;
+      height: 100%;
+
+      .header {
+        h3 {
+          font-size: 24px;
+          font-weight: 400;
+          
+          span {
+            font-weight: 700;
+
+            &::before {
+              content: 'R$ ';
+              color: $clrPrimary;
+              font-size: 14px;
+              font-weight: 400;
+            }
+
+            &::after {
+              content: ',00';
+              color: $clrPrimary;
+              font-size: 14px;
+              font-weight: 400;
+            }
+          }
+        }
+
+        .flex {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          h4 {
+            font-size: 36px;
+            color: $clrPrimary;
+            font-weight: 700;
+          }
+
+          button {
+            color: $clrPrimary;
+            font-size: 36px;
+          }
+        }
+      }
+
+      .content {
+        margin-top: 40px;
+
+        table {
+          width: 100%;
+          text-align: center;
+          background-color: #111111;
+          border-collapse: collapse;
+
+          thead {
+            background-color: #212121;
+          }
+
+          tr:hover {
+            background-color: #212121;
+          }
+
+          tr.positive {
+            color: #32D957;
+          }
+
+          tr.negative {
+            color: #EB3D3D;
+          }
+
+          td, th {
+            padding: 20px;
+            font-size: 18px;
+            text-transform: uppercase;
+          }
+
+          td {
+            span {
+              &::before {
+                content: 'R$ ';
+                font-size: 14px;
+                font-weight: 400;
+              }
+  
+              &::after {
+                content: ',00';
+                font-size: 14px;
+                font-weight: 400;
+              }
+            }
+          }
+
+          tr:nth-child(even) {
+            background-color: #212121;
+
+            &:hover {
+              background-color: #2a2a2a;
+            }
+          }
+        }
+
+        .projects {
+          .project {
+            width: 100%;
+            padding: 20px;
+            border-radius: 20px;
+
+            &:hover {
+              background-color: #525252;
+            }
+
+            .flex {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              img {
+                width: 200px;
+                border-radius: 20px;
+                border: 2px solid $clrPrimary;
+              }
+
+              .infos {
+                margin-left: 20px;
+                text-align: right;
+
+                h4 {
+                  font-size: 24px;
+                  color: #fff;
+                }
+
+                p {
+                  font-size: 18px;
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

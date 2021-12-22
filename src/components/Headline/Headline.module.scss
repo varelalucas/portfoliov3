@@ -1,0 +1,70 @@
+@import '../../styles/colors.scss';
+
+.headline {
+  margin: 150px 0;
+
+  .infos {
+    max-width: 800px;
+
+    h4 {
+      font-size: 48px;
+      color: #fff;
+
+      span {
+        color: $clrPrimary;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      color: #c9c9c9;
+    }
+  }
+
+  .grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+    .item {
+      .card {
+        padding: 30px;
+        background-color: $bgSecondary;
+        border-radius: 20px;
+        transition: .2s all ease;
+
+        &:hover {
+          background-color: $clrPrimary;
+
+          h1, h4 {
+            color: #fff !important;
+            -webkit-text-stroke-width: 0px !important;
+          }
+        }
+
+        .header {
+          h1 {
+            font-size: 100px;
+            font-weight: 700;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: $clrPrimary;
+            color: transparent;
+          }
+
+          h4 {
+            font-size: 24px;
+            color: $clrPrimary;
+            font-weight: 700;
+          }
+        }
+
+        .content {
+          p {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+}

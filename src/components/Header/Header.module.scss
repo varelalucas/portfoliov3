@@ -1,0 +1,148 @@
+@import '../../styles/colors.scss';
+
+.header {
+  height: 100vh;
+  background: linear-gradient(90deg, #090A0C 0%, #090A0C 50%, #40B53E 50.01%, #40B53E 100%);
+
+  .navbar {
+    padding: 30px 0;
+
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .links {
+        ul {
+          display: flex;
+          gap: 20px;
+
+          li {
+            list-style: none;
+          
+            button {
+              color: #fff;
+              transition: .2s all ease;
+              font-size: 18px;
+              font-weight: 700;
+
+              &:hover {
+                color: #1c1c1c;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hero {
+    .flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0px;
+
+      .textos {
+        max-width: 606px;
+
+        h1 {
+          font-size: 350px;
+          color: $clrPrimary;
+          text-transform: uppercase;
+          margin-bottom: 150px;
+
+          span {
+            color: #fff;
+          }
+        }
+      }
+
+      .infos {
+        text-align: right;
+        padding-top: 450px;
+
+        h4 {
+          font-size: 64px;
+        }
+
+        p {
+          font-size: 48px;
+        }
+
+        button {
+          background-color: #fff;
+          padding: 10px 20px;
+          color: $clrPrimary;
+          font-weight: 700;
+          text-transform: uppercase;
+          transition: .2s all ease;
+          font-size: 24px;
+          border-radius: 10px;
+          margin-top: 30px;
+
+          &:hover {
+            background-color: $bgPrimary;
+          }
+        }
+      }
+    }
+  }
+
+  .gtouch {
+    .buttons {
+      display: flex;
+      gap: 30px;
+
+      button {
+        i {
+          font-size: 36px;
+          color: #fff;
+          transition: .2s all ease;
+        }
+
+        &:hover {
+          i {
+            color: $clrPrimary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .header {
+    .hero {
+      .textos {
+        width: fit-content;
+
+        h1 {
+          font-size: 250px !important;
+        }
+      }
+
+      .infos {
+        margin-top: -250px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .header {
+    .hero {
+      margin-top: 70px;
+
+      .textos {
+        h1 {
+          font-size: 150px !important;
+        }
+      }
+
+      .infos {
+        padding-top: 0 !important;
+        margin: 0 !important;
+      }
+    }
+  }
+}

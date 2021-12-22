@@ -1,0 +1,77 @@
+@import '../../../styles/colors.scss';
+
+.projects {
+  .pageheader {
+    .flex {
+      display: flex;
+      justify-content: space-between;
+
+      h4 {
+        font-size: 36px;
+        color: $clrPrimary
+      }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: $clrPrimary;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .pagecontent {
+    margin-top: 50px;
+
+    .card {
+      padding: 70px;
+      border: 2px solid $bgSecondary;
+      border-radius: 20px;
+
+      form {
+        .formrow {
+          width: 100%;
+          display: flex;
+          margin-top: 20px;
+          gap: 30px;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          input, textarea {
+            width: 100%;
+            padding: 20px 30px;
+            background-color: $bgSecondary;
+            border: none;
+            color: #fff;
+            border-radius: 20px;
+
+            &::placeholder {
+              color: #fff;
+              opacity: .5;
+            }
+
+            &:focus, &.active {
+              outline: 2px solid $clrPrimary;
+              color: $clrPrimary;
+            }
+          }
+        }
+
+        button {
+          padding: 15px 20px;
+          color: #fff;
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: uppercase;
+          background-color: $clrPrimary;
+          border-radius: 10px;
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}

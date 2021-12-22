@@ -1,0 +1,107 @@
+import { NextPage } from 'next'
+import { useRouter } from 'next/router'
+import { BsArrowLeft } from 'react-icons/bs'
+import styles from './EditProject.module.scss'
+import { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
+import axios from 'axios'
+
+const EditProject: NextPage = () => {
+  const router = useRouter()
+  const [description, setDescription] = useState('')
+  const [name, setName] = useState('')
+  const [time, setTime] = useState('')
+  const [url, setUrl] = useState('')
+  const [ghUrl, setGhUrl] = useState('')
+  const [imgUrl, setImgUrl] = useState('')
+
+  const sendForm = () => {
+    let data = {
+      "newname": name,
+      "newvideourl": imgUrl,
+      "newdescription": description,
+      "newtime": time,
+      "newgithuburl": ghUrl,
+      "newurl": url
+    }
+    axios({
+      method: 'PUT',
+      url: `http://us.01.brandstoredesign.com.br:3333/api/v2/admin/projects/update/${router.query.name}`,
+      headers: {
+        'Authorization': 'Bearer nTALcf@f21cpa4O!mjtjh6w8rBqdzof&@jtC63G&1S9tK96e&R'
+      },
+      data: data
+    }),
+    Swal.fire(
+      'Sucesso!',
+      `O projeto ${router.query.name} foi editado com sucesso`,
+      'success'
+    ).then((result) => {
+      if (result.isConfirmed) {
+        router.push('/dashboard/projects')
+      }
+    })
+  }
+
+  useEffect(() => {
+    const loadContent = async (project: any): Promise<void> => {
+      const res = await fetch(`http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects/${project}`)
+      const data = await res.json()
+
+      return (
+        setName(data.data[0].name),
+        setDescription(data.data[0].description),
+        setTime(data.data[0].time),
+        setUrl(data.data[0].url),
+        setGhUrl(data.data[0].github_url),
+        setImgUrl(data.data[0].video_url)
+      )
+    }
+    loadContent(router.query.name)
+  }, [router.query.name])
+
+  return (
+    <div className={styles.projects}>
+      <div className={styles.pageheader}>
+        <div className={styles.flex}>
+          <h4>
+            Editando projeto: {router.query.name}
+          </h4>
+          <button onClick={() => router.push('/dashboard/projects')}>
+            <i>
+              <BsArrowLeft />
+            </i>
+          </button>
+        </div>
+      </div>
+      <div className={styles.pagecontent}>
+        <div className={styles.card}>
+          <form onSubmit={(e) => (
+            e.preventDefault(),
+            sendForm()
+          )}>
+            <div className={styles.formrow}>
+              <input type="text" name="name" value={name} onChange={(e)=>{setName(e.target.value)}} id="name" placeholder="Insira o nome do projeto" required />
+              <input type="number" name="time" value={time} onChange={(e)=>{setTime(e.target.value)}} id="time" placeholder="Insira o tempo gasto no projeto" required />
+            </div>
+            <div className={styles.formrow}>
+              <input type="text" name="descr" value={description} onChange={(e)=>{setDescription(e.target.value)}} id="name" placeholder="Insira a descrição do projeto" required />
+            </div>
+            <div className={styles.formrow}>
+              <input type="text" name="url" value={url} onChange={(e)=>{setUrl(e.target.value)}} id="name" placeholder="Insira a url" required/>
+              <input type="text" name="ghurl" value={ghUrl} onChange={(e)=>{setGhUrl(e.target.value)}} id="name" placeholder="Insira a url do github" required/>
+            </div>
+            <div className={styles.formrow}>
+              <textarea name="name" value={imgUrl} onChange={(e)=>{setImgUrl(e.target.value)}} id="name" placeholder="Insira o json das imagens/videos" required/> 
+            </div>
+            <button type='submit'>
+              Enviar formulário
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export { EditProject }

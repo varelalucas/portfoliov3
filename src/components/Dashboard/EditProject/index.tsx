@@ -45,7 +45,11 @@ const EditProject: NextPage = () => {
 
   useEffect(() => {
     const loadContent = async (project: any): Promise<void> => {
-      const res = await axios.get(`http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects/${project}`)
+      const res = await axios({
+        method: 'GET',
+        url: `http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects/${project}`,
+        headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' }
+      })
       const data = res.data
 
       return (

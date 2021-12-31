@@ -27,7 +27,7 @@ const CreateProject: NextPage = () => {
 
     axios({
       method: 'POST',
-      url: `http://localhost:3333/api/v3/projects/create`,
+      url: `http://0.0.0.0:3333/api/v3/projects/create`,
       headers: {
         'Authorization': 'Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy'
       },

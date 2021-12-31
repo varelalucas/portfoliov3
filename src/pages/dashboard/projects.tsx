@@ -30,7 +30,7 @@ const ProjectsPage: NextPage<Props> = (props) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
-  const res = await fetch("http://localhost:3333/api/v3/projects")
+  const res = await fetch("http://0.0.0.0:3333/api/v3/projects")
   const data = await res.json()
 
   const { ['portfolio.token']: token } = parseCookies(ctx)

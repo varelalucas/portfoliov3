@@ -1,0 +1,6 @@
+{
+  "api": {
+    "base_url": "http://localhost:3333/api/v3",
+    "secret_token": "5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy"
+  }
+}

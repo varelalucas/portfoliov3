@@ -1,70 +1,74 @@
-import { NextPage } from 'next'
+import { NextPage, GetServerSideProps } from 'next'
 import styles from './Login.module.scss'
 import { BiFingerprint, BiUser } from 'react-icons/bi'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import toastr from 'toastr'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
+import axios from 'axios'
+import { setCookie, parseCookies } from 'nookies'
 
 const LoginP: NextPage = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [logado, setLogado] = useState(false)
   const router = useRouter()
 
-  function logar(e: { preventDefault: () => void }) {
-    e.preventDefault()
+  const { register, handleSubmit } = useForm()
 
-    if (username === "LucasSites" && password === "Lucas@app2019") {
-      toastr.options = {
-        closeButton: true,
-        debug: false,
-        newestOnTop: true,
-        progressBar: true,
-        positionClass: "toast-top-left",
-        preventDuplicates: true,
-        showDuration: 300,
-        hideDuration: 1000,
-        timeOut: 2000,
-        extendedTimeOut: 1000,
-        showMethod: 'slideDown',
-        hideMethod: 'slideUp',
-        toastClass: "toastr-ip"
-      };
-      toastr.clear();
-      setTimeout(() => toastr.success("Logado com sucesso, Redirecionando"), 0);
-      localStorage.setItem(':session','nTALcf@f21cpa4O!mjtjh6w8rBqdzof&@jtC63G&1S9tK96e&R')
-        setLogado(true)
-      setTimeout(() => {
-        router.push('/dashboard')
-      }, 2000)
-    } else {
-      toastr.options = {
-        closeButton: true,
-        debug: false,
-        newestOnTop: true,
-        progressBar: true,
-        positionClass: "toast-top-left",
-        preventDuplicates: true,
-        showDuration: 300,
-        hideDuration: 1000,
-        timeOut: 2000,
-        extendedTimeOut: 1000,
-        showMethod: 'slideDown',
-        hideMethod: 'slideUp',
-        toastClass: "toastr-ip"
-      };
-      toastr.clear();
-      setTimeout(() => toastr.error("Usuário/Senha incorretos, por favor, tente novamente"), 0);
+  async function handleSignIn(data: any) {
+    const body = {
+      user: data.username,
+      password: data.password
     }
+
+    const request = await axios.post('/users/login', body).then((result => {
+      if (result.data.success === true) {
+        toastr.options = {
+          closeButton: true,
+          debug: false,
+          newestOnTop: true,
+          progressBar: true,
+          positionClass: "toast-top-left",
+          preventDuplicates: true,
+          showDuration: 300,
+          hideDuration: 1000,
+          timeOut: 2000,
+          extendedTimeOut: 1000,
+          showMethod: 'slideDown',
+          hideMethod: 'slideUp',
+          toastClass: "toastr-ip"
+        };
+        toastr.clear();
+        setTimeout(() => toastr.success("Logado com sucesso, Redirecionando"), 0);
+        setCookie(undefined, 'portfolio.token', result.data.token, {
+          maxAge: 60 * 60 * 1, // 1 hour
+        })
+        setTimeout(() => {
+          router.push('/dashboard')
+        }, 2000)
+      } else {
+        toastr.options = {
+          closeButton: true,
+          debug: false,
+          newestOnTop: true,
+          progressBar: true,
+          positionClass: "toast-top-left",
+          preventDuplicates: true,
+          showDuration: 300,
+          hideDuration: 1000,
+          timeOut: 2000,
+          extendedTimeOut: 1000,
+          showMethod: 'slideDown',
+          hideMethod: 'slideUp',
+          toastClass: "toastr-ip"
+        };
+        toastr.clear();
+        setTimeout(() => toastr.error(`${result.data.message}`), 0)
+      }
+    }))
+
+    
+
+    return request
   }
-
-  useEffect(() => {
-    const session = localStorage.getItem(':session')
-
-    if (session === 'nTALcf@f21cpa4O!mjtjh6w8rBqdzof&@jtC63G&1S9tK96e&R') {
-      router.push('/dashboard')
-    }
-  }, [])
 
   return (
     <div className={styles.login}>
@@ -78,18 +82,18 @@ const LoginP: NextPage = () => {
               <h5>
                 Insira as informações abaixo
               </h5>
-              <form onSubmit={logar}>
+              <form onSubmit={handleSubmit(handleSignIn)}>
                 <div className={styles.input}>
                   <i>
                     <BiUser />
                   </i>
-                  <input type="text" onChange={(e)=>{setUsername(e.target.value)}} placeholder="Seu usuário" required />
+                  <input {...register('username')} name="username" type="text" placeholder="Seu usuário" required />
                 </div>
                 <div className={styles.input}>
                   <i>
                     <BiFingerprint />
                   </i>
-                  <input type="password" onChange={(e)=>{setPassword(e.target.value)}} placeholder="Sua senha" required />
+                  <input {...register('password')} name="password" type="password" placeholder="Sua senha" required />
                 </div>
                 <button type="submit">
                   Entrar

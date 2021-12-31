@@ -14,21 +14,26 @@ const EditProject: NextPage = () => {
   const [url, setUrl] = useState('')
   const [ghUrl, setGhUrl] = useState('')
   const [imgUrl, setImgUrl] = useState('')
+  const [id, setId] = useState('')
 
   const sendForm = () => {
     let data = {
-      "newname": name,
-      "newvideourl": imgUrl,
-      "newdescription": description,
-      "newtime": time,
-      "newgithuburl": ghUrl,
-      "newurl": url
+      "id": id,
+      "new_name": name,
+      "new_description": description,
+      "new_image_url": imgUrl,
+      "new_github_url": ghUrl,
+      "new_url": url,
+      "new_time": time
     }
+
+    console.log(data)
+
     axios({
       method: 'PUT',
-      url: `http://us.01.brandstoredesign.com.br:3333/api/v2/admin/projects/update/${router.query.name}`,
+      url: `http://localhost:3333/api/v3/projects/edit`,
       headers: {
-        'Authorization': 'Bearer nTALcf@f21cpa4O!mjtjh6w8rBqdzof&@jtC63G&1S9tK96e&R'
+        'Authorization': 'Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy'
       },
       data: data
     }),
@@ -47,8 +52,7 @@ const EditProject: NextPage = () => {
     const loadContent = async (project: any): Promise<void> => {
       const res = await axios({
         method: 'GET',
-        url: `http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects/${project}`,
-        headers: {  'Access-Control-Allow-Origin': `http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects/${project}` }
+        url: `http://localhost:3333/api/v3/projects/${project}`,
       })
       const data = res.data
 
@@ -58,7 +62,8 @@ const EditProject: NextPage = () => {
         setTime(data.data[0].time),
         setUrl(data.data[0].url),
         setGhUrl(data.data[0].github_url),
-        setImgUrl(data.data[0].video_url)
+        setImgUrl(data.data[0].img_url),
+        setId(data.data[0].id)
       )
     }
     loadContent(router.query.name)
@@ -96,7 +101,7 @@ const EditProject: NextPage = () => {
               <input type="text" name="ghurl" value={ghUrl} onChange={(e)=>{setGhUrl(e.target.value)}} id="name" placeholder="Insira a url do github" required/>
             </div>
             <div className={styles.formrow}>
-              <textarea name="name" value={imgUrl} onChange={(e)=>{setImgUrl(e.target.value)}} id="name" placeholder="Insira o json das imagens/videos" required/> 
+              <input type="text" name="name" value={imgUrl} onChange={(e)=>{setImgUrl(e.target.value)}} id="name" placeholder="Insira a url da imagem" required/> 
             </div>
             <button type='submit'>
               Enviar formulário

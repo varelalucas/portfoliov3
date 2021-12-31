@@ -4,6 +4,7 @@ import { BsGithub, BsPencil, BsTrash } from 'react-icons/bs'
 import styles from './ProjectContent.module.scss'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import config from '../../../../config.json'
 
 interface Props {
   projects: any
@@ -13,7 +14,7 @@ const ProjectContent: NextPage<Props> = (props) => {
   const router = useRouter()
   const projects = props.projects
 
-  const deleteItem = (project: string) => {
+  const deleteItem = (id: string, name: string) => {
     Swal.fire({
       title: 'Você tem certeza?',
       text: "Você não poderá reverter isso!",
@@ -26,14 +27,14 @@ const ProjectContent: NextPage<Props> = (props) => {
       if (result.isConfirmed) {
         axios({
           method: 'DELETE',
-          url: `http://us.01.brandstoredesign.com.br:3333/api/v2/admin/projects/delete/${project}`,
+          url: `http://localhost:3333/api/v3/projects/delete/${id}`,
           headers: {
-            'Authorization': 'Bearer nTALcf@f21cpa4O!mjtjh6w8rBqdzof&@jtC63G&1S9tK96e&R'
+            'Authorization': `Bearer ${config.api.secret_token}`
           }
         }),
         Swal.fire(
           'Deletado!',
-          `O projeto ${project} foi deletado com sucesso`,
+          `O projeto ${name} foi deletado com sucesso`,
           'success'
         ).then((result) => {
           if (result.isConfirmed) {
@@ -58,12 +59,12 @@ const ProjectContent: NextPage<Props> = (props) => {
       </div>
       <div className={styles.pagecontent}>
         <div className={styles.grid}>
-          {projects.map((item: { name: string, video_url: any, description: string, url: string, github_url: string  }) => {
+          {projects.map((item: { id: string, name: string, img_url: any, description: string, url: string, github_url: string  }) => {
             return (
               <div className={styles.item} key={item.name}>
                 <div className={styles.card}>
                   <div className={styles.header}>
-                    <img src={item.video_url} alt="Projeto" />
+                    <img src={item.img_url} alt="Projeto" />
                     <h4>
                       {item.name}
                     </h4>
@@ -81,7 +82,7 @@ const ProjectContent: NextPage<Props> = (props) => {
                           <BsPencil />
                         </i>
                       </button>
-                      <button onClick={() => deleteItem(item.name)}>
+                      <button onClick={() => deleteItem(item.id, item.name)}>
                         <i>
                           <BsTrash />
                         </i>

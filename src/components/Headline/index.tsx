@@ -10,7 +10,7 @@ const Headline: NextPage = () => {
             Quais são os passos de produção de um <span>website</span>?
           </h4>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto aspernatur error praesentium ipsum, consequatur odio dolor excepturi explicabo eum repudiandae, corporis eligendi ad assumenda nisi deserunt nihil dolore ex vitae?
+            Um website não é apenas uma telinha bonita, por trás de um website existe muita pesquisa e desenvolvimento por cima do tempo, abaixo estão alguns dos passos para a produção de um website
           </p>
         </div>
         <div className={styles.grid}>
@@ -21,12 +21,12 @@ const Headline: NextPage = () => {
                   01
                 </h1>
                 <h4>
-                  NOME
+                  Pesquisa
                 </h4>
               </div>
               <div className={styles.content}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga saepe pariatur, dolore, nobis consectetur ad omnis placeat eligendi rem libero amet iure! Natus illo eius, perspiciatis et ipsam aspernatur?
+                  Nessa etapa é feita uma pesquisa sobre qual é o tipo do site que sua empresa precisa e como o projeto vai ser estruturado.
                 </p>
               </div>
             </div>
@@ -35,15 +35,15 @@ const Headline: NextPage = () => {
             <div className={styles.card}>
               <div className={styles.header}>
                 <h1>
-                  01
+                  02
                 </h1>
                 <h4>
-                  NOME
+                  Imaginação
                 </h4>
               </div>
               <div className={styles.content}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga saepe pariatur, dolore, nobis consectetur ad omnis placeat eligendi rem libero amet iure! Natus illo eius, perspiciatis et ipsam aspernatur?
+                  Nessa etapa é iniciado um processo criativo onde é definido os estilos-base do projeto, e principalmente, o conceito do site.
                 </p>
               </div>
             </div>
@@ -52,15 +52,15 @@ const Headline: NextPage = () => {
             <div className={styles.card}>
               <div className={styles.header}>
                 <h1>
-                  01
+                  03
                 </h1>
                 <h4>
-                  NOME
+                  Style Guide
                 </h4>
               </div>
               <div className={styles.content}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga saepe pariatur, dolore, nobis consectetur ad omnis placeat eligendi rem libero amet iure! Natus illo eius, perspiciatis et ipsam aspernatur?
+                  Nessa etapa é feito uma pesquisa dentro da marca do cliente, e é definido os parâmetros de estilização da marca do cliente.
                 </p>
               </div>
             </div>
@@ -69,15 +69,15 @@ const Headline: NextPage = () => {
             <div className={styles.card}>
               <div className={styles.header}>
                 <h1>
-                  01
+                  04
                 </h1>
                 <h4>
-                  NOME
+                  Sketch
                 </h4>
               </div>
               <div className={styles.content}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga saepe pariatur, dolore, nobis consectetur ad omnis placeat eligendi rem libero amet iure! Natus illo eius, perspiciatis et ipsam aspernatur?
+                  Nessa etapa é iniciado um sketch(esboço) do site, nessa etapa serve apenas para definir quais são os componentes da interface.
                 </p>
               </div>
             </div>
@@ -86,15 +86,15 @@ const Headline: NextPage = () => {
             <div className={styles.card}>
               <div className={styles.header}>
                 <h1>
-                  01
+                  05
                 </h1>
                 <h4>
-                  NOME
+                  Wireframe
                 </h4>
               </div>
               <div className={styles.content}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga saepe pariatur, dolore, nobis consectetur ad omnis placeat eligendi rem libero amet iure! Natus illo eius, perspiciatis et ipsam aspernatur?
+                  Após o sketch finalizado essa interface criada no papel é passado para o figma, e já estruturado com as dimensões reais.
                 </p>
               </div>
             </div>
@@ -103,15 +103,15 @@ const Headline: NextPage = () => {
             <div className={styles.card}>
               <div className={styles.header}>
                 <h1>
-                  01
+                  06
                 </h1>
                 <h4>
-                  NOME
+                  Ui Design
                 </h4>
               </div>
               <div className={styles.content}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga saepe pariatur, dolore, nobis consectetur ad omnis placeat eligendi rem libero amet iure! Natus illo eius, perspiciatis et ipsam aspernatur?
+                  Nessa etapa iremos pegar o wireframe e aplicar as cores/estilos que foram definidas na etapa de style guide.
                 </p>
               </div>
             </div>
@@ -120,15 +120,15 @@ const Headline: NextPage = () => {
             <div className={styles.card}>
               <div className={styles.header}>
                 <h1>
-                  01
+                  07
                 </h1>
                 <h4>
-                  NOME
+                  Código
                 </h4>
               </div>
               <div className={styles.content}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga saepe pariatur, dolore, nobis consectetur ad omnis placeat eligendi rem libero amet iure! Natus illo eius, perspiciatis et ipsam aspernatur?
+                  Nessa etapa iremos colocar a mão na massa e codificar nossa aplicação com o propósito que fique idêntico ao design.
                 </p>
               </div>
             </div>
@@ -137,15 +137,15 @@ const Headline: NextPage = () => {
             <div className={styles.card}>
               <div className={styles.header}>
                 <h1>
-                  01
+                  08
                 </h1>
                 <h4>
-                  NOME
+                  Finalização
                 </h4>
               </div>
               <div className={styles.content}>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fuga saepe pariatur, dolore, nobis consectetur ad omnis placeat eligendi rem libero amet iure! Natus illo eius, perspiciatis et ipsam aspernatur?
+                  Nessa etapa iremos aplicar as animações e otimizar o website, nessa etapa também acontece a demonstração ao vivo.
                 </p>
               </div>
             </div>

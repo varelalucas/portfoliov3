@@ -1,4 +1,4 @@
-import { NextPage, GetStaticProps } from 'next'
+import { NextPage, GetStaticProps, GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { BiArrowToRight } from 'react-icons/bi'
@@ -106,11 +106,11 @@ const IndexContent: NextPage<Props> = (props) => {
           </div>
           <div className={styles.content}>
             <div className={styles.projects}>
-              {projects.slice(0, 4).map((item: { name: string, video_url: any, description: string }) => {
+              {projects.slice(0, 4).map((item: { name: string, img_url: any, description: string }) => {
                 return (
                   <button className={styles.project} key={item.name} onClick={() => router.push(`/dashboard/projects/edit/${item.name}`)}>
                     <div className={styles.flex}>
-                      <img src={item.video_url} alt="Projeto" />
+                      <img src={item.img_url} alt="Projeto" />
                       <div className={styles.infos}>
                         <h4>{item.name}</h4>
                         <p>{item.description}</p>

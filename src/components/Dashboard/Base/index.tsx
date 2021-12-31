@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { BiCategory, BiHome, BiLogOut, BiMoney, BiUser, BiUserPlus } from 'react-icons/bi'
 import styles from './Base.module.scss'
 
@@ -18,7 +18,7 @@ const Base: NextPage = (props) => {
     <section className={styles.base}>
       <div className={styles.sidebar}>
         <div className={styles.header}>
-          <img src='/avatar.png'/>
+          <img src="/avatar.png"/>
           <div className={styles.infos}>
             <h4>
               Lucas Varela

@@ -1,9 +1,12 @@
-import { NextPage, GetStaticProps } from 'next'
+import { NextPage, GetStaticProps, GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { Base } from '../../components/Dashboard/Base'
 import Head from 'next/head'
 import { IndexContent } from '../../components/Dashboard/IndexContent'
+import { parseCookies } from 'nookies'
+import axios from 'axios'
+import config from '../../../config.json'
 
 interface Props {
   earns: any
@@ -14,14 +17,6 @@ const IndexDash: NextPage<Props> = (props) => {
   const router = useRouter()
   const earns = props.earns
   const projects = props.projects
-
-  useEffect(() => {
-    const session = localStorage.getItem(':session')
-
-    if (session !==	'nTALcf@f21cpa4O!mjtjh6w8rBqdzof&@jtC63G&1S9tK96e&R') {
-      router.push('/login')
-    } 
-  }, [])
 
     return (
       <>
@@ -37,26 +32,34 @@ const IndexDash: NextPage<Props> = (props) => {
     )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-
-  const res = await fetch('http://us.01.brandstoredesign.com.br:3333/api/v2/admin/earns', {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const res = await fetch(`http://localhost:3333/api/v3/earns/earns`, {
     method: 'GET',
     headers: {
-      'Authorization': 'Bearer nTALcf@f21cpa4O!mjtjh6w8rBqdzof&@jtC63G&1S9tK96e&R'
+      'Authorization': `Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy`
     }
   })
   const data = await res.json()
-  const resp = await fetch("http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects/")
-  const datap = await resp.json()
+  const resp = await axios.get("/projects")
+  const datap = await resp.data
+
+  const { ['portfolio.token']: token } = parseCookies(ctx)
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      }
+    }
+  }
 
   return {
     props: {
       earns: data.data,
       projects: datap.data
-    },
-    revalidate: 1
+    }
   }
-
 }
 
 export default IndexDash

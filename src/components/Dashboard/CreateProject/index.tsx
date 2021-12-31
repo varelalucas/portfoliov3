@@ -13,12 +13,12 @@ const CreateProject: NextPage = () => {
   const [time, setTime] = useState('')
   const [url, setUrl] = useState('')
   const [ghUrl, setGhUrl] = useState('')
-  const [imgUrl, setImgUrl] = useState('')
+  const [img_url, setImgUrl] = useState('')
 
   const sendForm = () => {
     const data = {
       "name": name,
-      "video_url": imgUrl,
+      "img_url": img_url,
       "description": description,
       "time": time,
       "github_url": ghUrl,
@@ -27,9 +27,9 @@ const CreateProject: NextPage = () => {
 
     axios({
       method: 'POST',
-      url: `http://us.01.brandstoredesign.com.br:3333/api/v2/admin/projects/create`,
+      url: `http://localhost:3333/api/v3/projects/create`,
       headers: {
-        'Authorization': 'Bearer nTALcf@f21cpa4O!mjtjh6w8rBqdzof&@jtC63G&1S9tK96e&R'
+        'Authorization': 'Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy'
       },
       data: data
     }),
@@ -60,10 +60,10 @@ const CreateProject: NextPage = () => {
       </div>
       <div className={styles.pagecontent}>
         <div className={styles.card}>
-          <form onSubmit={(e) => (
-            e.preventDefault(),
-            sendForm()
-          )}>
+          <form onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+          >
             <div className={styles.formrow}>
               <input type="text" name="name" onChange={(e)=>{setName(e.target.value)}} id="name" placeholder="Insira o nome do projeto" required />
               <input type="number" name="time" onChange={(e)=>{setTime(e.target.value)}} id="time" placeholder="Insira o tempo gasto no projeto" required />
@@ -76,9 +76,9 @@ const CreateProject: NextPage = () => {
               <input type="text" name="ghurl" onChange={(e)=>{setGhUrl(e.target.value)}} id="name" placeholder="Insira a url do github" required/>
             </div>
             <div className={styles.formrow}>
-              <textarea name="name" onChange={(e)=>{setImgUrl(e.target.value)}} id="name" placeholder="Insira o json das imagens/videos" required/> 
+              <input type="text" name="img" onChange={(e)=>{setImgUrl(e.target.value)}} id="imgurl" placeholder="Insira a url da imagem" required/>
             </div>
-            <button type='submit'>
+            <button type='submit' onClick={() => sendForm()}>
               Enviar formulário
             </button>
           </form>

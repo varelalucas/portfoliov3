@@ -1,6 +1,11 @@
 import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import axios from 'axios'
+import config from '../../config.json'
+
+axios.defaults.baseURL = config.api.base_url;
+axios.defaults.headers.common['Authorization'] = `Bearer ${config.api.secret_token}`;
 
 function MyApp({ Component, pageProps }: AppProps) {
 

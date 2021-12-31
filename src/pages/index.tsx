@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -7,6 +8,7 @@ import { Header } from '../components/Header'
 import { Headline } from '../components/Headline'
 import { Projects } from '../components/Projects'
 import styles from '../components/Projects/Projects.module.scss'
+import config from '../../config.json'
 
 interface Props {
   projects: any
@@ -24,7 +26,7 @@ const Home: NextPage<Props> = (props) => {
       <Header />
       <Headline />
       <Projects>
-        {projects.slice(0, 6).map((item: { name: string, description: string, video_url: any, url: string}) => {
+        {projects.slice(0, 6).map((item: { name: string, description: string, img_url: any, url: string}) => {
           if (projects.lenght === 0) {
             return (
               <h4>
@@ -35,7 +37,7 @@ const Home: NextPage<Props> = (props) => {
             return (
               <div className={styles.item} key={item.name}>
                 <button className={styles.card} onClick={() => router.push(item.url)}>
-                  <img src={item.video_url} alt="Projeto" />
+                  <img src={item.img_url} alt="Projeto" />
                   <div className={styles.infos}>
                     <h4>
                       {item.name}
@@ -58,8 +60,8 @@ const Home: NextPage<Props> = (props) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-  const res = await fetch("http://us.01.brandstoredesign.com.br:3333/api/v2/client/projects")
-  const data = await res.json()
+  const res = await axios.get(`${config.api.base_url}/projects`)
+  const data = await res.data
 
   return {
     props: {

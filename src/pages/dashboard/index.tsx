@@ -1,4 +1,4 @@
-import { NextPage, GetStaticProps, GetServerSideProps } from 'next'
+import { NextPage, GetStaticProps, GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { useRouter } from 'next/router'
 import { useContext, useEffect } from 'react'
 import { Base } from '../../components/Dashboard/Base'
@@ -13,7 +13,7 @@ interface Props {
   projects: any
 }
 
-const IndexDash: NextPage<Props> = (props) => {
+const IndexDash: NextPage<Props> = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter()
   const earns = props.earns
   const projects = props.projects
@@ -33,7 +33,7 @@ const IndexDash: NextPage<Props> = (props) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const res = await fetch(`http://0.0.0.0:3333/api/v3/earns/earns`, {
+  const res = await fetch(`https://lucassites.com.br/api/v3/earns/earns`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy`

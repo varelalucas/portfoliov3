@@ -52,6 +52,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         permanent: false,
       }
     }
+  } 
+  
+  if (token !== config.api.secret_token) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      }
+    }
   }
 
   return {

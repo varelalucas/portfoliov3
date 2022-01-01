@@ -7,7 +7,7 @@ const Footer: NextPage = () => {
       <div className="container">
         <div className={styles.flex}>
           <h2>
-            Todos os direitos reservados © LucasSites 2021.
+            Todos os direitos reservados © LucasSites 2022.
           </h2>
         </div>
       </div>

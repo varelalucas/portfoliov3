@@ -43,7 +43,7 @@ const LoginP: NextPage = () => {
         })
         setTimeout(() => {
           router.push('/dashboard')
-        }, 2000)
+        }, 1000)
       } else {
         toastr.options = {
           closeButton: true,

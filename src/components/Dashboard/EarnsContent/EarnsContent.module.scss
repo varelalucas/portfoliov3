@@ -1,0 +1,74 @@
+@import '../../../styles/colors.scss';
+
+.earns {
+  .pageheader {
+    .flex {
+      display: flex;
+      justify-content: space-between;
+
+      h4 {
+        font-size: 36px;
+        color: $clrPrimary
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: $clrPrimary;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+
+    h4 {
+      color: $clrPrimary;
+      font-size: 18px;
+      font-weight: 400;
+
+      span {
+        color: #fff;
+        
+        &::before {
+          content: 'R$ '
+        }
+
+        &::after {
+          content: ',00'
+        }
+      }
+    }
+  }
+
+  .pagecontent {
+    margin-top: 50px;
+
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+      display: grid;
+      grid-gap: 20px;
+
+      .item {
+        background-color: $bgSecondary;
+        padding: 30px;
+        text-align: center;
+        border-radius: 20px;
+
+        h4 {
+          font-size: 64px;
+          color: var(--color);
+        }
+
+        button {
+          margin-top: 20px;
+
+          i {
+            font-size: 36px;
+            color: #ff4949;
+          }
+        }
+      }
+    }
+  }
+}

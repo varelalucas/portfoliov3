@@ -9,6 +9,7 @@ import { Headline } from '../components/Headline'
 import { Projects } from '../components/Projects'
 import styles from '../components/Projects/Projects.module.scss'
 import config from '../../config.json'
+import { useEffect } from 'react'
 
 interface Props {
   projects: any

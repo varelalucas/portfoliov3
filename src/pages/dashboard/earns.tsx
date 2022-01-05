@@ -5,6 +5,8 @@ import { Base } from '../../components/Dashboard/Base'
 import Head from 'next/head'
 import { parseCookies } from 'nookies'
 import config from '../../../config.json'
+import { EarnsContent } from '../../components/Dashboard/EarnsContent'
+import axios from 'axios'
 
 const EarnsPage: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter()
@@ -17,9 +19,7 @@ const EarnsPage: NextPage = (props: InferGetServerSidePropsType<typeof getServer
           </title>
         </Head>
         <Base>
-          <h1>
-            Earns
-          </h1>
+          <EarnsContent earns={props.earns} />
         </Base>
       </>
     )
@@ -27,6 +27,12 @@ const EarnsPage: NextPage = (props: InferGetServerSidePropsType<typeof getServer
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { ['portfolio.token']: token } = parseCookies(ctx)
+  const res = await fetch(`${config.api.base_url}/earns/earns`, {
+    headers: {
+      'Authorization': `Bearer ${config.api.secret_token}`
+    }
+  })
+  const data = await res.json()
 
   if (!token) {
     return {
@@ -47,7 +53,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 
   return {
-    props: {}
+    props: {
+      earns: data
+    }
   }
 
 }

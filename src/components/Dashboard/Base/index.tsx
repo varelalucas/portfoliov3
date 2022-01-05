@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
@@ -6,13 +7,6 @@ import styles from './Base.module.scss'
 
 const Base: NextPage = (props) => {
   const router = useRouter()
-  const [classProject, setClassProject] = useState('')
-
-  useEffect(() => {
-    if (router.pathname.match("/dashboard/projects")) {
-      setClassProject(`${styles.active}`)
-    }
-  }, [])
 
   return (
     <section className={styles.base}>
@@ -41,7 +35,7 @@ const Base: NextPage = (props) => {
               </button>
             </li>
             <li>
-              <button onClick={() => router.push('/dashboard/projects')} className={classProject}>
+              <button onClick={() => router.push('/dashboard/projects')} className={router.pathname.match("/dashboard/projects") ? styles.active : styles.button}>
                 <i>
                   <BiCategory />
                 </i>
@@ -51,7 +45,7 @@ const Base: NextPage = (props) => {
               </button>
             </li>
             <li>
-              <button onClick={() => router.push('/dashboard/earns')} className={router.pathname == "/dashboard/earns" ? styles.active : styles.button}>
+              <button onClick={() => router.push('/dashboard/earns')} className={router.pathname.match("/dashboard/earns") ? styles.active : styles.button}>
                 <i>
                   <BiMoney />
                 </i>

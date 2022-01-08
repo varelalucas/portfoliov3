@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import styles from './Header.module.scss'
-import { BsArrow90DegLeft, BsBehance, BsDiscord, BsInstagram } from 'react-icons/bs'
+import { BsBehance, BsDiscord, BsInstagram } from 'react-icons/bs'
 
 const Header: NextPage = () => {
   const router = useRouter()
@@ -93,19 +93,14 @@ const Header: NextPage = () => {
       <div className={styles.gtouch}>
         <div className="container">
           <div className={styles.buttons}>
-            <button>
+            <button onClick={() => router.push('https://discord.gg/SzP26mvfsu')}>
               <i>
                 <BsDiscord />
               </i>
             </button>
-            <button>
+            <button onClick={() => router.push('https://instagram.com/lucassites.dev')}>
               <i>
                 <BsInstagram />
-              </i>
-            </button>
-            <button>
-              <i>
-                <BsBehance />
               </i>
             </button>
           </div>

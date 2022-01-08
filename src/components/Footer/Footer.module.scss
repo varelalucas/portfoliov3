@@ -1,5 +1,62 @@
+@import '../../styles/colors.scss';
+
 .footer {
-  padding: 40px 0;
-  margin-top: -90px;
-  text-align: center;
+  background: $bgSecondary;
+  padding: 30px;
+  
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .brand {
+      text-align: left;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+
+      img {
+        width: 100px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding-top: 20px;
+      
+      button {
+       font-size: 36px;
+       color: #f5f5f5;
+       transition: .2s all ease;
+
+        &.discord:hover {
+          color: #5865F2;
+        }
+        
+        &.instagram:hover {
+          color: #F16848;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .footer {
+    .flex {
+      flex-direction: column;
+
+      .brand {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
 }

@@ -3,14 +3,13 @@
 .getintouch {
   .content {
     background-color: $bgSecondary;
-    margin-top: -100px;
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 50px;
-    margin-bottom: 100px;
+    padding: 30px 80px 80px;
+    margin: 100px 0;
 
     h4 {
       font-size: 36px;
@@ -18,30 +17,6 @@
 
       span {
         color: $clrPrimary;
-      }
-    }
-
-    .buttons {
-      display: flex;
-      gap: 30px;
-      margin-top: 30px;
-      border-bottom: 2px solid #c9c9c9;
-      width: 50%;
-      justify-content: center;
-      padding-bottom: 30px;
-
-      button {
-        i {
-          font-size: 36px;
-          color: #fff;
-          transition: .2s all ease;
-        }
-
-        &:hover {
-          i {
-            color: $clrPrimary;
-          }
-        }
       }
     }
 

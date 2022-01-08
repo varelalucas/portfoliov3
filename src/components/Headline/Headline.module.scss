@@ -36,6 +36,7 @@
 
         &:hover {
           background-color: $clrPrimary;
+          transform: scale(1.06);
 
           h1, h4 {
             color: #fff !important;

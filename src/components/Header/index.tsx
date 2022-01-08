@@ -83,7 +83,7 @@ const Header: NextPage = () => {
             <div className={styles.infos}>
               <h4>Lucas Varela</h4>
               <p>Desenvolvedor web & Ui/Ux Designer</p>
-              <button>
+              <button onClick={() => router.push('/#projetos')}>
                 Conheça meu trabalho
               </button>
             </div>
@@ -93,16 +93,16 @@ const Header: NextPage = () => {
       <div className={styles.gtouch}>
         <div className="container">
           <div className={styles.buttons}>
-            <button onClick={() => router.push('https://discord.gg/SzP26mvfsu')}>
+            <a href="https://discord.gg/SzP26mvfsu" target="_blank" rel="noopener noreferrer">
               <i>
                 <BsDiscord />
               </i>
-            </button>
-            <button onClick={() => router.push('https://instagram.com/lucassites.dev')}>
+            </a>
+            <a href="https://instagram.com/lucassites.dev" target="_blank" rel="noopener noreferrer">
               <i>
                 <BsInstagram />
               </i>
-            </button>
+            </a>
           </div>
         </div>
       </div>

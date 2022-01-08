@@ -74,7 +74,7 @@ const EarnsContent: NextPage<Props> = (props) => {
         <div className={styles.grid}>
           {earns.map((earn: any) => {
             return (
-              <div className={`${styles.item} ${earn.type}`}>
+              <div key={earn.type} className={`${styles.item} ${earn.type}`}>
                 <h4>
                   {earn.quantity}
                 </h4>

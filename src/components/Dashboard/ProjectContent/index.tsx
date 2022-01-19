@@ -27,7 +27,7 @@ const ProjectContent: NextPage<Props> = (props) => {
       if (result.isConfirmed) {
         axios({
           method: 'DELETE',
-          url: `https://lucassites.com.br/api/v3/projects/delete/${id}`,
+          url: `${config.api.base_url}/projects/delete/${id}`,
           headers: {
             'Authorization': `Bearer ${config.api.secret_token}`
           }

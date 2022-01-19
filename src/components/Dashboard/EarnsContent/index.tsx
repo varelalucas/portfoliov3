@@ -37,7 +37,7 @@ const EarnsContent: NextPage<Props> = (props) => {
       if (result.isConfirmed) {
         axios({
           method: 'DELETE',
-          url: `https://lucassites.com.br/api/v3/earns/earns/delete/${id}`,
+          url: `${config.api.base_url}/earns/earns/delete/${id}`,
           headers: {
             'Authorization': `Bearer ${config.api.secret_token}`
           }
@@ -78,7 +78,7 @@ const EarnsContent: NextPage<Props> = (props) => {
                 <h4>
                   {earn.quantity}
                 </h4>
-                <button onClick={() => deleteEarn(earn.typeid)}>
+                <button onClick={() => deleteEarn(earn.id)}>
                   <i>
                     <BsTrash />
                   </i>

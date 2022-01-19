@@ -5,21 +5,20 @@ import styles from './CreateEarn.module.scss'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import config from '../../../../config.json'
 
 const CreateEarn: NextPage = () => {
   const router = useRouter()
   const [quantity, setQuantity] = useState('')
-  const [typeid, setTypeid] = useState('')
 
   const sendForm = () => {
     const data = {
-      id: parseInt(typeid),
       quantity: parseInt(quantity)
     }
 
     axios({
       method: 'POST',
-      url: `https://lucassites.com.br/api/v3/earns/earns/add`,
+      url: `${config.api.base_url}/earns/earns/add`,
       headers: {
         'Authorization': 'Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy'
       },
@@ -58,7 +57,6 @@ const CreateEarn: NextPage = () => {
           >
             <div className={styles.formrow}>
               <input type="number" onChange={(e) => setQuantity(e.target.value)} name="quantity" id="quantity" placeholder="Insira a quantidade" required />
-              <input type="number" onChange={(e) => setTypeid(e.target.value)} name="id" id="id" placeholder="Insira o id do earn" required />
             </div>
             <button type='submit' onClick={() => sendForm()}>
               Enviar formulário

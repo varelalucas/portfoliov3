@@ -33,7 +33,7 @@ const IndexDash: NextPage<Props> = (props: InferGetServerSidePropsType<typeof ge
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const res = await fetch(`https://lucassites.com.br/api/v3/earns/earns`, {
+  const res = await fetch(`${config.api.base_url}/earns/earns`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy`

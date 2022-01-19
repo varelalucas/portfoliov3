@@ -15,7 +15,6 @@ class MyDocument extends Document {
           <meta name="robots" content="index,nofollow" />
           <meta name="author" content="LucasSites (lucassites.com.br)" />
           <meta name="copyright" content="LucasSites" />
-          <meta name="keywords" content="Desenvolvedor web, Desenvolvedor de sites, Sites laguna, laguna sites, desenvolvedor de sites laguna, html, css, javascript, desenvolvedor html, ui designer, designer de site, web designer" />
           <meta name="designer" content="LucasSites (lucassites.com.br)" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />

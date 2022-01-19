@@ -5,6 +5,7 @@ import styles from './CreateProject.module.scss'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import config from '../../../../config.json'
 
 const CreateProject: NextPage = () => {
   const router = useRouter()
@@ -27,7 +28,7 @@ const CreateProject: NextPage = () => {
 
     axios({
       method: 'POST',
-      url: `https://lucassites.com.br/api/v3/projects/create`,
+      url: `${config.api.base_url}/projects/create`,
       headers: {
         'Authorization': 'Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy'
       },

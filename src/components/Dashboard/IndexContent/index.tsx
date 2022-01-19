@@ -53,12 +53,12 @@ const IndexContent: NextPage<Props> = (props) => {
                 </th>
               </thead>
               <tbody>
-                {earns.slice(0, 8).map((item: { type: string, typeid: number, quantity: number }) => {
+                {earns.slice(0, 8).map((item: { type: string, id: number, quantity: number }) => {
                   if (item.type === 'positive') {
                     return (
                       <tr className={styles.positive}>
                         <td>
-                          {item.typeid}
+                          {item.id}
                         </td>
                         <td>
                           <span>
@@ -71,7 +71,7 @@ const IndexContent: NextPage<Props> = (props) => {
                     return (
                       <tr className={styles.negative}>
                         <td>
-                          {item.typeid}
+                          {item.id}
                         </td>
                         <td>
                           <span>

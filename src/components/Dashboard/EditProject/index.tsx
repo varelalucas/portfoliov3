@@ -5,6 +5,7 @@ import styles from './EditProject.module.scss'
 import { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import config from '../../../../config.json'
 
 const EditProject: NextPage = () => {
   const router = useRouter()
@@ -31,7 +32,7 @@ const EditProject: NextPage = () => {
 
     axios({
       method: 'PUT',
-      url: `https://lucassites.com.br/api/v3/projects/edit`,
+      url: `${config.api.base_url}/api/v3/projects/edit`,
       headers: {
         'Authorization': 'Bearer 5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy'
       },
@@ -52,7 +53,7 @@ const EditProject: NextPage = () => {
     const loadContent = async (project: any): Promise<void> => {
       const res = await axios({
         method: 'GET',
-        url: `https://lucassites.com.br/api/v3/projects/${project}`,
+        url: `${config.api.base_url}/api/v3/projects/${project}`,
       })
       const data = res.data
 

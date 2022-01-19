@@ -2,5 +2,8 @@
   "api": {
     "base_url": "https://lucassites.com.br/api/v3",
     "secret_token": "5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy"
+  },
+  "website": {
+    "off": false
   }
 }

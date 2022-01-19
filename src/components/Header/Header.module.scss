@@ -4,38 +4,6 @@
   height: 100%;
   background: linear-gradient(90deg, #090A0C 0%, #090A0C 50%, #40B53E 50.01%, #40B53E 100%);
 
-  .navbar {
-    padding: 30px 0;
-
-    .flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .links {
-        ul {
-          display: flex;
-          gap: 20px;
-
-          li {
-            list-style: none;
-          
-            button {
-              color: #fff;
-              transition: .2s all ease;
-              font-size: 18px;
-              font-weight: 700;
-
-              &:hover {
-                color: #1c1c1c;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   .hero {
     .flex {
       display: flex;

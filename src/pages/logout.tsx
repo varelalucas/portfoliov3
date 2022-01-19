@@ -7,12 +7,12 @@ const Logout: NextPage = () => {
   const router = useRouter()
 
   useEffect(() => {
-    setCookie(null, 'portfolio.token', '5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy', {
+    setCookie(null, 'portfolio.token', 'sadasdasdasdasdasdasa', {
       maxAge: -1,
       path: '/',
     }),
     router.push('/login')
-  }, [])
+  }, [router])
 
   return null
 }

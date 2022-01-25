@@ -2,7 +2,7 @@
 
 .header {
   height: 100%;
-  background: linear-gradient(90deg, #090A0C 0%, #090A0C 50%, #40B53E 50.01%, #40B53E 100%);
+  background: linear-gradient(90deg, $bgSecondary 0%, $bgSecondary 50%, $clrPrimary 50.01%, $clrPrimary 100%);
 
   .hero {
     .flex {

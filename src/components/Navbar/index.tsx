@@ -60,6 +60,11 @@ const Navbar: NextPage = () => {
                   </button>
                 </li>
                 <li>
+                  <button onClick={() => router.push('/blog')}>
+                    Blog
+                  </button>
+                </li>
+                <li>
                   <button onClick={() => router.push('/#projetos')}>
                     Projetos
                   </button>

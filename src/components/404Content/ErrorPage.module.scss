@@ -1,0 +1,90 @@
+@import '../../styles/colors.scss';
+
+.error {
+  .flex {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+
+    .item {
+      .card {
+        padding: 40px;
+        background-color: $bgSecondary;
+        border-radius: 20px;
+        max-width: 600px;
+
+        .title {
+          .back {
+            a {
+              font-size: 18px;
+              color: #e6e6e6;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              i {
+                padding-top: 3px;
+              }
+            }
+          }
+
+          h4 {
+            font-size: 36px;
+            margin-top: 24px;
+            color: $clrPrimary;
+          }
+
+          p {
+            font-size: 18px;
+            margin-top: 24px;
+            color: #e6e6e6;
+
+            &:last-child {
+              font-size: 14px;
+
+              a {
+                text-decoration: underline;
+
+                &:hover {
+                  color: $clrPrimary;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      img {
+        width: 680px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .error {
+    img {
+      width: 400px !important;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .error {
+    .flex {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center !important;
+      gap: 40px;
+    }
+  }
+}
+
+@media (max-width: 568px) {
+  .error {
+    img {
+      width: 100% !important;
+    }
+  }
+}

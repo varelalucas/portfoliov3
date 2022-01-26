@@ -18,6 +18,7 @@ class MyDocument extends Document {
           <meta name="designer" content="LucasSites (lucassites.com.br)" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+          <meta name="keywords" content="LucasSites Lucas Varela SitesLaguna Desenvolvedor WEB Sites responsivos Programador de sites HTML CSS JAVASCRIPT nextjs react Desenvolvedor web laguna " />
           <meta property="og:title" content="LucasSites" />
           <meta
             property="og:description"

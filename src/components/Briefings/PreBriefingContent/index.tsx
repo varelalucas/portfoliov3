@@ -4,8 +4,8 @@ import styles from './PreBriefingContent.module.scss'
 const PreBriefingContent: NextPage = () => {
   const form = [
     {
-      title: "Seção 1",
-      key: "section1",
+      title: "Seção 2",
+      key: "section2",
       description: "Perguntas sobre sua empresa",
       questions: [
         {
@@ -126,10 +126,10 @@ const PreBriefingContent: NextPage = () => {
         <div className="container">
           <div className={styles.content}>
             <h4>
-              Pré Briefing
+              Briefing
             </h4>
             <p>
-              Responda as questões abaixo para conseguirmos definir o orçamento base de seu projeto!
+              Responda as questões abaixo para conseguirmos definir o orçamento de seu projeto!
             </p>
           </div>
         </div>

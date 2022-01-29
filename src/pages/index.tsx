@@ -37,7 +37,7 @@ const Home: NextPage<Props> = (props) => {
           } else {
             return (
               <div className={styles.item} key={item.name}>
-                <button className={styles.card} onClick={() => router.push(item.url)}>
+                <button className={styles.card} onClick={() => router.push(item.url)} aria-label={`${item.name}`}>
                   <img src={item.img_url} alt="Projeto" />
                   <div className={styles.infos}>
                     <h4>

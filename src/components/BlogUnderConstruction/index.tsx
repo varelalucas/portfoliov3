@@ -22,7 +22,7 @@ const BlogUnderConstruction: NextPage = () => {
                   Essa página ainda está em construção, Verifique novamente daqui a algum tempo.
                 </p>
                 <p>
-                  Acha que isso é um erro? Entre em <a>contato</a>
+                  Acha que isso é um erro? Entre em contato
                 </p>
               </div>
             </div>

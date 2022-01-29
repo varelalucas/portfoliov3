@@ -21,7 +21,7 @@ const Header: NextPage = () => {
             <div className={styles.infos}>
               <h4>Lucas Varela</h4>
               <p>Desenvolvedor web & Ui/Ux Designer</p>
-              <button onClick={() => router.push('/#projetos')}>
+              <button onClick={() => router.push('/#projetos')} aria-label="Conheça meu trabalho">
                 Conheça meu trabalho
               </button>
             </div>

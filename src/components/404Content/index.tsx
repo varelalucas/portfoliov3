@@ -22,7 +22,7 @@ const ErrorPage: NextPage = () => {
                   Ooops! procurei por todo canto, mas infelizmente não consegui encontrar essa página
                 </p>
                 <p>
-                  Acha que isso é um erro? Entre em <a>contato</a>
+                  Acha que isso é um erro? Entre em contato
                 </p>
               </div>
             </div>

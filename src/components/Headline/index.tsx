@@ -10,7 +10,7 @@ const Headline: NextPage = () => {
             Quais são os passos de produção de um <span>website</span>?
           </h4>
           <p>
-            Um website não é apenas uma telinha bonita, por trás de um website existe muita pesquisa e desenvolvimento por cima do tempo, abaixo estão alguns dos passos para a produção de um website
+            Um website não é apenas uma telinha bonita, por trás de um website existe muita pesquisa e desenvolvimento, abaixo estão alguns dos passos para a produção de um website
           </p>
         </div>
         <div className={styles.grid}>
@@ -77,7 +77,7 @@ const Headline: NextPage = () => {
               </div>
               <div className={styles.content}>
                 <p>
-                  Nessa etapa é iniciado um sketch(esboço) do site, nessa etapa serve apenas para definir quais são os componentes da interface.
+                  Nessa etapa é iniciado um sketch(esboço) do site, essa etapa serve apenas para definir quais são os componentes da interface.
                 </p>
               </div>
             </div>
@@ -145,7 +145,7 @@ const Headline: NextPage = () => {
               </div>
               <div className={styles.content}>
                 <p>
-                  Nessa etapa iremos aplicar as animações e otimizar o website, nessa etapa também acontece a demonstração ao vivo.
+                  Nessa etapa iremos aplicar as animações e otimizar o website e também é quando acontece a demonstração ao vivo.
                 </p>
               </div>
             </div>

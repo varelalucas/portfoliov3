@@ -1,6 +1,6 @@
 {
   "api": {
-    "base_url": "https://api.lucassites.com.br/api/v3",
+    "base_url": "https://portfolioapi.squareweb.app/api/v3",
     "secret_token": "5GFKNSzDNAbBGSqmBe2rJUnfBG76SrALV46ABjAZ9jeAzxUjxy"
   },
   "website": {
